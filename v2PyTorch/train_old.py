@@ -22,7 +22,6 @@ import gc
 import csv
 from pdb import set_trace as stop
 
-
 # python train.py --cell_type=Cell1 --model_name=attchrome --epochs=120 --lr=0.0001 --data_root=data/ --save_root=Results/
 
 parser = argparse.ArgumentParser(description='DeepDiff')
@@ -216,7 +215,6 @@ if(args.test_on_saved_model==False):
 			best_valid_avgAUC = valid_avgAUC
 			best_test_avgAUC = test_avgAUC
 			torch.save(model.cpu().state_dict(),model_dir+"/"+model_name+'_avgAUC_model.pt')
-            #torch.save(model.state_dict(), "/model/+model_name+'_avgAUC_model.pt'")
 			model.type(dtype)
 
 		print("Epoch:",epoch)
@@ -263,4 +261,3 @@ else:
 				gene_attention.append(str(e))
 			attentionfilewriter.writerow(gene_attention)
 		attentionfile.close()
-
