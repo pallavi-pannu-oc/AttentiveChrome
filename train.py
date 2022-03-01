@@ -216,6 +216,9 @@ if(args.test_on_saved_model==False):
 			best_test_avgAUC = test_avgAUC
 			torch.save(model.cpu().state_dict(),model_dir+"/"+model_name+'_avgAUC_model.pt')
             #torch.save(model.state_dict(), "/model/+model_name+'_avgAUC_model.pt'")
+	                torch.save(model.state_dict(), "/model/model.pt")
+                        dirpath = os.path.dirname(os.path.abspath(__file__))
+                        shutil.copy(dirpath + "/net.py","/model/net.py")
 			model.type(dtype)
 
 		print("Epoch:",epoch)
